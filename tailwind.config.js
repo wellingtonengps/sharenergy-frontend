@@ -13,6 +13,7 @@ module.exports = {
       secondary: "#d6df27",
       shape: "#D9D9D9",
       black: "#333333",
+      greeeDark: "#6e675c",
     },
     fontFamily: {
       sans: ["Roboto", "sans-serif"],

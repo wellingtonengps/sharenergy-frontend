@@ -12,7 +12,7 @@ export default function FormPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const { handleCreateUserAccount } = useAuth();
+  const { createUserAccount } = useAuth();
 
   async function createAccout() {
     const data: User = {
@@ -25,7 +25,7 @@ export default function FormPage() {
       password: password,
     };
 
-    handleCreateUserAccount(data);
+    createUserAccount(data);
   }
 
   return (

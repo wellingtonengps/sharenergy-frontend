@@ -11,7 +11,7 @@ export default function Checkbox(props: InputProps) {
         className="mr-2  rounded-md bg-shape text-black text-xl font-sans pl-2 pr-2"
         type="checkbox"
       />
-      <text className="text-sm text-primary font-sans">{props.name}</text>
+      <h2 className="text-sm text-primary font-sans">{props.name}</h2>
     </div>
   );
 }

@@ -9,7 +9,7 @@ export default function Button({ name, color, ...props }: ButtonProps) {
   return (
     <button
       className={`${
-        color === "signin" ? "bg-primary" : "bg-secondary"
+        color === "signin" ? "bg-primary" : "bg-secondary text-greeeDark"
       } rounded-md font-sans text-base h-11 w-36`}
       {...props}
     >

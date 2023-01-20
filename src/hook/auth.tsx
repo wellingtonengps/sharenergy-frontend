@@ -12,51 +12,53 @@ export interface User {
   phoneNumber: number;
   address: string;
   username: string;
-  password: string;
+  password?: string;
 }
 
 interface IAuthContextData {
   user: User | null;
   setUser(user: User | null): void;
-  handleCreateUserAccount(user: User): void;
-  handleSignIn(CPF: string, password: string): void;
-  handleSignOut(): void;
+  createUserAccount(user: User): void;
+  signIn(username: string, password: string): void;
+  signOut(): void;
 }
 
 export const AuthContext = createContext({} as IAuthContextData);
 
 function AuthProvider({ children }: AuthProviderProps) {
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<User | null>({} as User);
 
-  async function handleCreateUserAccount(data: User) {
+  async function createUserAccount(data: User) {
     try {
       const response = await api.post("/user", data);
 
-      console.log(response);
-    } catch (error) {
-      console.log(error);
-    }
+      console.log(response.data);
 
-    setUser(data);
+      return response;
+    } catch (error) {
+      return error;
+    }
   }
 
-  async function handleSignIn(CPF: string, password: string) {
+  async function signIn(username: string, password: string) {
     try {
+      const response = await api.post("/auth/login", { username, password });
+      setUser(response.data);
     } catch (error) {
       console.log(error);
     }
   }
 
-  function handleSignOut() {}
+  function signOut() {}
 
   return (
     <AuthContext.Provider
       value={{
-        user,
+        user: user,
         setUser,
-        handleCreateUserAccount,
-        handleSignIn,
-        handleSignOut,
+        createUserAccount,
+        signIn,
+        signOut,
       }}
     >
       {children}
