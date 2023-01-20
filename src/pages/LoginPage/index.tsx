@@ -23,7 +23,10 @@ export default function LoginPage() {
         </div>
 
         <div className="flex justify-center">
-          <Button name="Entrar" />
+          <Button name="Create Account" color="signin" />
+        </div>
+        <div className="flex justify-center mt-5">
+          <Button name="Signin" color="create account" />
         </div>
       </div>
     </>

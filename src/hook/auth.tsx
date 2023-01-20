@@ -11,8 +11,8 @@ export interface User {
   name: string;
   phoneNumber: number;
   address: string;
-  //username: string;
-  //password: string;
+  username: string;
+  password: string;
 }
 
 interface IAuthContextData {

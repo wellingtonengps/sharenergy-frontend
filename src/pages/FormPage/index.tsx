@@ -21,8 +21,8 @@ export default function FormPage() {
       cpf: parseInt(CPF),
       address: address,
       phoneNumber: parseInt(phoneNumber),
-      //username: username,
-      //password: password,
+      username: username,
+      password: password,
     };
 
     handleCreateUserAccount(data);
@@ -78,7 +78,11 @@ export default function FormPage() {
         </form>
 
         <div className="flex justify-center">
-          <Button name="Create Account" onClick={createAccout} />
+          <Button
+            name="Create Account"
+            onClick={createAccout}
+            color="create account"
+          />
         </div>
       </div>
     </>
